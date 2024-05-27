@@ -21,6 +21,7 @@ void SIGINT_handler (int sig) {
 
 
 int main(){
+    
     main_pid = getpid();
     signal(SIGINT, SIGINT_handler);
 

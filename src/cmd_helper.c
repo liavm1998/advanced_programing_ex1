@@ -267,6 +267,17 @@ void set_last_status(pid_t pid) {
     }
 }
 
+
+void printStringArray(char** array) {
+    int i = 0;
+    while (array[i] != NULL) {
+        printf("%s\n", array[i]);
+        i++;
+    }
+    printf("GOT NULL so exited loop\n");
+}
+
+
 /**
  * This function is the main function to handle a single command (without pipes)
  * its have tow options
@@ -291,13 +302,17 @@ void simple_exec(char *command, int do_fork) {
     char **splited_exec = (char **) malloc(sizeof(char *) * buff_size);
     parse_str(command, splited_exec, " ");
     splited_exec[buff_size - 1] = NULL;
-
+    
     if (do_fork) {
         int pid = fork();
         if (pid < 0) {
             perror("ERROR with exec fork");
             exit(1);
         } else if (pid == 0) {
+            printf("buffer size: %i",buff_size);
+            if(buff_size == 4)
+                splited_exec[buff_size - 2] = NULL;
+      
             execvp(splited_exec[0], splited_exec);
             exit(127); // in case execvp didnt succeed
         }
@@ -305,6 +320,7 @@ void simple_exec(char *command, int do_fork) {
         free(splited_exec);
         redirect_revert();
     } else {
+
         execvp(splited_exec[0], splited_exec);
         exit(127); // in case execvp failed
     }
@@ -428,6 +444,7 @@ void pipe_control(char *command) {
     }
 
     if (comm_size - 1 == 0) {
+        // mean no pipe
         simple_exec(command, TRUE);
         return;
     }
