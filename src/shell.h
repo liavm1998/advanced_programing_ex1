@@ -19,7 +19,7 @@
 #define SPECIAL_BS_CODE 127
 #define SKIP_CODE 55555
 
-
+int compareStrings(const char *str1, const char *str2);
 char *input_command();
 void pipe_control(char *command);
 void print_dynamic_prompt();

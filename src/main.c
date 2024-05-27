@@ -21,7 +21,6 @@ void SIGINT_handler (int sig) {
 
 
 int main(){
-    
     main_pid = getpid();
     signal(SIGINT, SIGINT_handler);
 
@@ -43,14 +42,16 @@ int main(){
             if (last_command != NULL) free(last_command);
             exit(0);
         }
-
+        else if (strcmp(command, "echo $?") == 0) {
+            printf("%s\n", last_command);
+            curr_history = init_history(command);
+            continue;
+        }
         else if (!strncmp(command, "!!", 2) && last_command != NULL){
             free(command);
             command = dynamic_cpy(last_command);
         }
-
-        if (strlen(command) > 0){
-
+        else if (strlen(command) > 0){
             if (last_command != NULL) {
                 free(last_command);
             }

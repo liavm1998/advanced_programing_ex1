@@ -84,7 +84,7 @@ void parse_str(char *str, char **splited, char *parse_by) {
         splited[index++] = temp;
         temp = strtok(NULL, parse_by);
     }
-    
+
 }
 
 /***
