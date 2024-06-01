@@ -42,10 +42,11 @@ Note, the project requires a gcc compiler
 ```
 
 <p>If you want to watch a live example click here
-<a href="https://github.com/liavm1998/advanced_programing_ex1/blob/main/task%201%20images-videos/run%20code%20example%20(1).mp4" target="_blank">
+<a href="https://drive.google.com/file/d/1l4nHr48A6gqlfkFyf0g7_mMs09f4VFIE/view?usp=sharing" target="_blank">
     <img src="https://github.com/liavm1998/advanced_programing_ex1/blob/main/task%201%20images-videos/a%20play%20icon.jpg" 
     alt="Video" style="width: 24px; height: 32px; vertical-align: middle;">
 </a>
 </p>
+
 
 Good Luck!
