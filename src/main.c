@@ -51,7 +51,7 @@ int main(){
             free(command);
             command = dynamic_cpy(last_command);
         }
-        else if (strlen(command) > 0){
+        if (strlen(command) > 0){
             if (last_command != NULL) {
                 free(last_command);
             }
